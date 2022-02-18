@@ -1,10 +1,20 @@
 <script lang="ts" setup>
   import { isExternal } from '@/utils/validate';
   import { computed } from 'vue'
-  const props = defineProps<{
-    iconClass: string,
-    className?: string
-  }>()
+  // const props = defineProps<{
+  //   iconClass: string,
+  //   className?: string
+  // }>()
+  const props = defineProps({
+    iconClass: {
+      type: String,
+      required: true
+    },
+    className: {
+      type: String,
+      default: ''
+    }
+  })
   const isExternalVal = computed(() => isExternal(props.iconClass))
   const iconName = computed(() => `#icon-${props.iconClass}`)
   const svgClass = computed(() => {
