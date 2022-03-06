@@ -1,20 +1,26 @@
 <script lang="ts" setup>
 import { reactive, ref, nextTick } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router';
 import type { ElForm } from 'element-plus'
+import {RouterRowTy} from '~/router'
+import { setToken } from '@/utils/auth'
 type FormInstance = InstanceType<typeof ElForm>
 
 const loginFormRef = ref<FormInstance>()
 let loading = ref<boolean>(false)
 
 const loginForm = reactive({
-  username: '',
-  password: ''
+  username: 'admin',
+  password: '12345678'
 })
 const rules = reactive({
   username: [{required: true, message: '用户名不能为空', trigger: 'blur'}],
   password: [{ required: true, min: 8, message: '密码不能少于8位数', trigger: 'blur' }]
 })
 // 登录
+const store = useStore()
+const router = useRouter()
 const handleLogin = (formEl: FormInstance | undefined) => {
   if (!formEl) {
     return
@@ -22,6 +28,15 @@ const handleLogin = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       console.log('成功')
+      setToken('4759216555ffff')
+      store.dispatch('permission/dynamicRoutes') // 过滤菜单
+      store.dispatch('permission/generateRoutes').then((accessRoutes) => {
+        console.log(accessRoutes)
+        accessRoutes.forEach((route: RouterRowTy) => {
+          router.addRoute(route)
+        });
+        router.push('/')
+      })
     } else {
       console.log('失败')
       return false

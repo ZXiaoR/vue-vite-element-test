@@ -9,7 +9,7 @@
   </ul>
   <h2>son</h2>
   <!-- 在 2.6.0 中，我们为具名插槽和作用域插槽引入了一个新的统一的语法 (即 v-slot 指令)。它取代了 slot 和 slot-scope 这两个目前已被废弃但未被移除且仍在文档中的 attribute。新语法的由来可查阅这份 RFC。 -->
-  <son :counter="counter" @hello="showHelloMsg">
+  <son :counter="counter" @hello="showHelloMsg" ref="son">
     <h1>测试默认插槽</h1>
     <!-- <h2 slot="header">具名插槽（该语法已被废弃）</h2> -->
     <template v-slot:header>
@@ -39,9 +39,11 @@ export default {
       name: '冰墩墩',
       age: 1
     })
+    const son = ref()
     const hobbies = reactive(['1', '2', '3'])
     onMounted(
       () => {
+        console.log(son.value.$refs)
         setTimeout(() => {
           msg.value = 'hello' // 操作数据需要.value
         }, 1000)
@@ -58,7 +60,8 @@ export default {
       msg,
       person,
       hobbies,
-      showHelloMsg
+      showHelloMsg,
+      son
     }
   }
 }

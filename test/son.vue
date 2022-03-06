@@ -1,5 +1,6 @@
 <template>
   <button @click="test">测试触发父组件hello事件</button>
+  <div ref="son2">1111</div>
   <!-- 默认插槽 -->
   <slot>默认插槽</slot>
   <!-- 具名插槽 -->
@@ -8,7 +9,7 @@
   <slot name="footer" :games="games"></slot>
 </template>
 <script>
-import { reactive } from "vue"
+import { onMounted, reactive, ref } from "vue"
 
 export default {
   name: 'son',
@@ -30,9 +31,14 @@ export default {
       context.emit('hello', 666)
     }
     const games = reactive(['1111', '2222'])
+    const son2 = ref()
+    onMounted(() => {
+      console.log('----son2', son2)
+    })
     return {
       test,
-      games
+      games,
+      son2
     }
   }
 }

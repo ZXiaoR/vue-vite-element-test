@@ -9,14 +9,16 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors":true,
     "lib": ["esnext", "dom"],
     "types": ["node", "element-plus/global", "vite-plugin-svg-icons/client"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["typings/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","typings"],
   "exclude": ["test/index.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
