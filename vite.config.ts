@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-const path = require('path');
+import { resolve } from 'path'
+import path from "path-browserify"
+
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { createSvgIconsPlugin  } from 'vite-plugin-svg-icons'
 
@@ -10,13 +12,20 @@ export default defineConfig({
     vue(),
     vueJsx(),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(__dirname, 'src/icons/svg')],
+      iconDirs: [resolve(__dirname, 'src/icons/svg')],
       symbolId: 'icon-[dir]-[name]'
     }),
   ],
+  define: {
+    define: {
+      'process.platform': null,
+      'process.version': null,
+     }
+  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': resolve(__dirname, 'src'),
+      path: "path-browserify",
     }
   },
   css: {

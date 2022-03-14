@@ -20,6 +20,6 @@ export interface PermissionTy {
 export interface StateTy {
   app: AppTy,
   setting: SettingTy,
-  tagsVies: TagsViewTy,
+  tagsViews: TagsViewTy,
   permission: PermissionTy
 }
