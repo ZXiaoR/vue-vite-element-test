@@ -1,9 +1,12 @@
 <template>
   <template v-if="!item.hidden">
+    <!-- 无子节点 -->
     <template v-if="hasOneShowingChild(item.children, item)">
       <Link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'submenu-title-noDropdown': !isNest }">
+          <!-- icon -->
           <Item :meta="onlyOneChild.meta || item.meta" />
+          <!-- title -->
           <template #title>{{ onlyOneChild.meta?.title }}</template>
         </el-menu-item>
       </Link>
@@ -50,7 +53,6 @@ const props = defineProps({
     default: ''
   }
 })
-console.log('----', props.item)
 //显示sidebarItem 的情况
 let onlyOneChild: any = ref(null)
 const hasOneShowingChild = (children = [], parent: RouteItemTy) => {

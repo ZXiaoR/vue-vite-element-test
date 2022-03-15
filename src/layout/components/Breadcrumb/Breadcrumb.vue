@@ -1,3 +1,4 @@
+<!-- 面包屑组件 -->
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
@@ -21,6 +22,7 @@ const route = useRoute()
 const getBreadcrumb = () => {
   let matched: any = route.matched.filter((item) => item.meta && item.meta.title)
   const first: any = matched[0]
+  // 追加dashboard
   if (!isDashboard(first)) {
     matched = [{ path: '/dashboard', meta: { title: 'Dashboard' } }].concat(matched)
   }

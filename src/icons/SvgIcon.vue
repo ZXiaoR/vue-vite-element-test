@@ -1,20 +1,16 @@
+<template>
+  <div v-if="isExternalVal" :style="styleExternalIcon" class="svg-external-icon svg-icon" />
+  <svg v-else :class="svgClass" aria-hidden="true">
+    <use :xlink:href="iconName" />
+  </svg>
+</template>
 <script lang="ts" setup>
   import { isExternal } from '@/utils/validate';
   import { computed } from 'vue'
-  // const props = defineProps<{
-  //   iconClass: string,
-  //   className?: string
-  // }>()
-  const props = defineProps({
-    iconClass: {
-      type: String,
-      required: true
-    },
-    className: {
-      type: String,
-      default: ''
-    }
-  })
+  const props = defineProps<{
+    iconClass: string,
+    className?: string
+  }>()
   const isExternalVal = computed(() => isExternal(props.iconClass))
   const iconName = computed(() => `#icon-${props.iconClass}`)
   const svgClass = computed(() => {
@@ -31,12 +27,7 @@
     }
   })
 </script>
-<template>
-<div v-if="isExternalVal" :style="styleExternalIcon" class="svg-external-icon svg-icon" />
-<svg v-else :class="svgClass" aria-hidden="true">
-  <use :xlink:href="iconName" />
-</svg>
-</template>
+
 <style scoped>
 .svg-icon {
   width: 1em;

@@ -16,12 +16,6 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]'
     }),
   ],
-  define: {
-    define: {
-      'process.platform': null,
-      'process.version': null,
-     }
-  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -29,8 +23,9 @@ export default defineConfig({
     }
   },
   css: {
+    // css预处理器
     preprocessorOptions: {
-      //define global scss variable
+      // 定义全局scss变量
       scss: {
         additionalData: `@import "@/styles/variables.scss";`
       }

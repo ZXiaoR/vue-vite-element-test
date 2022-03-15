@@ -1,5 +1,6 @@
 interface SettingTy {
     title: string,
+    logo: string,
     tagsView: boolean,
     fixedHeader: boolean,
     sidebarLogo: boolean,
@@ -7,7 +8,7 @@ interface SettingTy {
   }
   const setting: SettingTy = {
     title: 'vue3',
-  
+    logo: '',
     /**
      * @type {boolean} true | false
      * @description Whether need tagsView

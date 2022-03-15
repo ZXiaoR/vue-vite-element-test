@@ -17,9 +17,13 @@ export interface TagsViewTy {
 export interface PermissionTy {
   routes: RouterTy
 }
+export interface UserTy {
+  token: string | null
+}
 export interface StateTy {
   app: AppTy,
   setting: SettingTy,
   tagsViews: TagsViewTy,
-  permission: PermissionTy
+  permission: PermissionTy,
+  user: UserTy
 }

@@ -31,7 +31,7 @@ import { Close } from '@element-plus/icons-vue'
 
 import { RouterTy, RouteItemTy } from '~/router'
 import { ObjTy } from '~/common'
-import { ref, reactive, computed, watch, onMounted, nextTick, toRefs, getCurrentInstance } from 'vue'
+import { reactive, computed, watch, onMounted, nextTick, toRefs, getCurrentInstance } from 'vue'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 const store = useStore()
@@ -264,7 +264,7 @@ const { visible, top, left, selectedTag } = toRefs(state)
     .el-icon-close {
       width: 16px;
       height: 16px;
-      vertical-align: 2px;
+      vertical-align: text-bottom;
       border-radius: 50%;
       text-align: center;
       transition: all .3s cubic-bezier(.645, .045, .355, 1);

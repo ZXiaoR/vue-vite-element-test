@@ -1,3 +1,4 @@
+<!-- element plus icon -->
 <template>
   <el-icon class="el-svg-icon">
     <component :is="ElSvg[elSvgName]" />

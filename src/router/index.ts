@@ -11,7 +11,31 @@ export const constantRoutes: RouterTy = [
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index.vue'),
-        meta: { title: 'Dashboard' }
+        meta: { title: 'Dashboard', icon: 'welcome' }
+      }
+    ]
+  },
+  {
+    path: '/ccc',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'ccc',
+        component: () => import('@/views/dashboard/index.vue'),
+        meta: { title: 'ccc', icon: 'welcome' }
+      }
+    ]
+  },
+  {
+    path: '/ddd',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'ddd',
+        component: () => import('@/views/dashboard/index.vue'),
+        meta: { title: 'ddd', icon: 'welcome' }
       }
     ]
   },

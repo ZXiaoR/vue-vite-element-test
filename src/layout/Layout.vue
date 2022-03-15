@@ -20,8 +20,6 @@ export default {
 import { Sidebar, Navbar, AppMain, TagsView } from './components'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-//import ResizeHook to   listen  page size that   open or close
-// import ResizeHook from './hook/ResizeHandler'
 const store = useStore()
 const sidebar = computed(() => {
   return store.state.app.sidebar

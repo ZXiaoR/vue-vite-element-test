@@ -12,9 +12,9 @@ const mutations = {
         state.sidebar.opened = !state.sidebar.opened
         state.sidebar.withoutAnimation = false
         if (state.sidebar.opened) {
-        Cookies.set('sidebarStatus', '1')
+            Cookies.set('sidebarStatus', '1')
         } else {
-        Cookies.set('sidebarStatus', '0')
+            Cookies.set('sidebarStatus', '0')
         }
     },
     M_CLOSE_SIDEBAR: (state: AppTy, { withoutAnimation }: {withoutAnimation: boolean}) => {

@@ -17,10 +17,7 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <router-link to="/">
-              <el-dropdown-item>Home</el-dropdown-item>
-            </router-link>
-            <el-dropdown-item divided @click="loginOut">login out</el-dropdown-item>
+            <el-dropdown-item @click="loginOut">login out</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -48,8 +45,10 @@ const toggleSideBar = () => {
 
 const loginOut = () => {
   store.dispatch('user/logout').then(() => {
-    // ElMessage({ message: '退出登录成功', type: 'success' })
-    // proxy.$router.push(`/login?redirect=${proxy.$route.fullPath}`)
+    ElMessage({ 
+      type: 'success',
+      message: '退出登录成功'
+    })
     //此处reload清空路由和重置部分状态
     location.reload()
   })

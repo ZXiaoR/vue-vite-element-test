@@ -32,7 +32,7 @@ const cachedViews = computed(() => {
 }
 
 .fixed-header+.app-main {
-  padding-top: 50px;
+  padding: 10px
 }
 
 .hasTagsView {
@@ -42,7 +42,7 @@ const cachedViews = computed(() => {
   }
 
   .fixed-header+.app-main {
-    padding-top: 84px;
+    padding: 10px;
   }
 }
 </style>

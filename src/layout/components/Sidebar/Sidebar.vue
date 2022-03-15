@@ -36,10 +36,6 @@ const route = useRoute()
 const permission_routes = computed(() => {
   return store.state.permission.routes
 })
-console.log(store.state.permission.routes)
-const sidebar = computed(() => {
-  return store.state.app.sidebar
-})
 
 const activeMenu = computed(() => {
   const { meta, path } = route
@@ -53,7 +49,7 @@ const showLogo = computed(() => {
   return store.state.settings.sidebarLogo
 })
 const isCollapse = computed(() => {
-  return !sidebar.value.opened
+  return !store.state.app.sidebar.opened
 })
 
 //change  scss variable to js

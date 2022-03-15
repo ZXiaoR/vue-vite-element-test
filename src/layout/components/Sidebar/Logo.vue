@@ -2,8 +2,12 @@
   <div class="sidebar-logo-container" :class="{ collapse: collapse }">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
+        <!-- 如果有logo -->
         <img v-if="logo" :src="logo" class="sidebar-logo" />
-        <h1 v-else class="sidebar-title">{{ title }}</h1>
+        <!-- 使用icon -->
+        <div v-else class="icon-welcome">
+           <svg-icon icon-class="welcome" class-name="icon" />
+        </div>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
@@ -24,9 +28,8 @@ defineProps({
 })
 const state = reactive({
   title: setting.title,
-  logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
+  logo: setting.logo
 })
-//export to page for
 const { title, logo } = toRefs(state)
 </script>
 
@@ -37,7 +40,7 @@ const { title, logo } = toRefs(state)
    leave-> leave-from
   */
 .sidebarLogoFade-enter-active {
-  transition: opacity 2s;
+  transition: opacity 1.5s;
 }
 .sidebarLogoFade-enter-from,
 .sidebarLogoFade-leave-to {
@@ -48,9 +51,8 @@ const { title, logo } = toRefs(state)
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background: #2b2f3a;
-  padding-left: 14px;
-  text-align: left;
+  background: $logoBg;
+  text-align: center;
   overflow: hidden;
   & .sidebar-logo-link {
     height: 100%;
@@ -70,6 +72,14 @@ const { title, logo } = toRefs(state)
       font-size: 14px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
+    }
+    & .icon-welcome {
+      padding: 10px;
+
+      .icon {
+        color: #fff;
+        font-size: 32px;
+      }
     }
   }
   &.collapse {
