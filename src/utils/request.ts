@@ -1,7 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { store } from '@/store'
 import { ElMessage } from 'element-plus'
-import { ObjTy } from '~/common'
 const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   responseType: 'json',
@@ -9,13 +8,16 @@ const service = axios.create({
   headers: {
     'Cache-Control': 'no-cache'
   }
-})
+} as AxiosRequestConfig)
 // request拦截器
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const token = store.state.user.token
     if (token) {
-      (config as ObjTy).headers['Token'] = token
+      config.headers = {
+        ...config.headers,
+        Token: token
+      };
     }
     return config
   },
