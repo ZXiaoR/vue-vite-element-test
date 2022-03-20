@@ -1,12 +1,11 @@
 import router from '@/router'
-import store from '@/store'
+import { store } from '@/store'
 import { getToken } from '@/utils/auth'
 import NProgress from 'nprogress'
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 import 'nprogress/nprogress.css'
 import getPageTitle from '@/utils/getPageTitle'
 import {RouterRowTy} from '~/router'
-import {StateTy} from '~/store'
 const whiteList = ['/login', '/404', '/401'] // no redirect whitelist
 router.beforeEach(async (to: any, from, next: any) => {
   NProgress.start()
@@ -16,8 +15,7 @@ router.beforeEach(async (to: any, from, next: any) => {
     if (to.path === '/login') {
       next({ path: '/dashboard' })
     } else {
-      const routesL: number = (store.state as StateTy).permission.routes.length
-      if (routesL > 0) {
+      if (store.state.permission.routes.length > 0) {
         next()
       } else {
         try {

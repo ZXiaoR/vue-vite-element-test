@@ -1,6 +1,7 @@
-import { TagsViewTy } from '~/store'
+import { TagsViewTy, StateTy } from '~/store'
 import { RouteItemTy } from '~/router'
 import { ObjTy } from '~/common'
+import { Module } from 'vuex'
 const state: TagsViewTy = {
     visitedViews: [],
     cachedViews: []
@@ -160,5 +161,5 @@ const state: TagsViewTy = {
     state,
     mutations,
     actions
-  }
+  } as Module<TagsViewTy,StateTy>
   

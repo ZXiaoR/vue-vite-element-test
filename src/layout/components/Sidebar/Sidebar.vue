@@ -24,7 +24,7 @@
 import Logo from './Logo.vue'
 import SidebarItem from './SidebarItem.vue'
 import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { useStore } from '@/store';
 import { useRoute } from 'vue-router';
 //get scss variable
 import scssExportJson from '@/styles/variables-to-js.scss'

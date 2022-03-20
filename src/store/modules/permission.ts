@@ -1,7 +1,8 @@
 // 路由管理
 import { constantRoutes, endRoutes } from '@/router'
+import { Module } from 'vuex'
 import { RouterTy } from  '~/router'
-import { PermissionTy } from '~/store'
+import { PermissionTy, StateTy } from '~/store'
 import { ObjTy } from '~/common'
 let currentRoutes: RouterTy = [] // 当前过滤后的路由
 
@@ -35,4 +36,4 @@ export default {
   state,
   mutations,
   actions
-}
+}  as Module<PermissionTy,StateTy>

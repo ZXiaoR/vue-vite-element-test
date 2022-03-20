@@ -39,7 +39,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive, ref, nextTick } from 'vue'
-import { useStore } from 'vuex'
+import { useStore } from '@/store'
 import { useRouter } from 'vue-router';
 import type { ElForm } from 'element-plus'
 import {RouterRowTy} from '~/router'

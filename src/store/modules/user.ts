@@ -1,7 +1,8 @@
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { UserTy } from '~/store'
+import { UserTy, StateTy } from '~/store'
 import { ObjTy } from '~/common'
 import { doLogin } from '@/api/user'
+import { Module } from 'vuex'
 const state: UserTy = {
   token: getToken()
 }
@@ -38,4 +39,4 @@ export default {
   state,
   mutations,
   actions
-}
+} as Module<UserTy,StateTy>

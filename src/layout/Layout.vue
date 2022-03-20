@@ -19,7 +19,7 @@ export default {
 <script setup lang="ts">
 import { Sidebar, Navbar, AppMain, TagsView } from './components'
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useStore } from '@/store'
 const store = useStore()
 const sidebar = computed(() => {
   return store.state.app.sidebar

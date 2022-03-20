@@ -1,29 +1,30 @@
 import { RouterTy } from '~/router'
 export interface AppTy {
   sidebar: {
-    opened: boolean,
-    withoutAnimation: boolean
+    opened: boolean;
+    withoutAnimation: boolean;
   }
 }
 export interface SettingTy {
-  tagsView: boolean,
-  fixedHeader: boolean,
-  sidebarLogo: boolean
+  tagsView: boolean;
+  fixedHeader: boolean;
+  sidebarLogo: boolean;
 }
 export interface TagsViewTy {
-  visitedViews: RouterTy,
-  cachedViews: RouterTy,
+  visitedViews: RouterTy;
+  cachedViews: RouterTy;
 }
 export interface PermissionTy {
-  routes: RouterTy
+  routes: RouterTy;
 }
 export interface UserTy {
-  token: string | null
+  token: string | null;
 }
 export interface StateTy {
-  app: AppTy,
-  setting: SettingTy,
-  tagsViews: TagsViewTy,
-  permission: PermissionTy,
-  user: UserTy
+  name: string;
+  app: AppTy;
+  setting: SettingTy;
+  tagsViews: TagsViewTy;
+  permission: PermissionTy;
+  user: UserTy;
 }

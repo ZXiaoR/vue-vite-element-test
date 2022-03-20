@@ -1,10 +1,11 @@
 import Cookies from 'js-cookie'
-import { AppTy } from '~/store'
+import { Module } from 'vuex'
+import { AppTy, StateTy } from '~/store'
 import { ObjTy } from '~/common'
-const state: AppTy = {
+const state:AppTy = {
     sidebar: {
         opened: Cookies.get('sidebarStatus') ? !!+ Cookies.get('sidebarStatus')! : true,
-        withoutAnimation: false
+        withoutAnimation: false,
     }
 }
 const mutations = {
@@ -36,4 +37,4 @@ export default {
     state,
     mutations,
     actions
-}
+} as Module<AppTy,StateTy>

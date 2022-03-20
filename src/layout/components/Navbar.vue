@@ -31,7 +31,7 @@ import { ElMessage } from 'element-plus'
 import Breadcrumb from './Breadcrumb'
 import Hamburger from './Hamburger'
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useStore } from '@/store'
 const store = useStore()
 const opened = computed(() => {
   return store.state.app.sidebar.opened

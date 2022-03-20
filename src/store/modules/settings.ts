@@ -1,5 +1,6 @@
 import defaultSettings from '@/settings'
-import { SettingTy } from '~/store'
+import { Module } from 'vuex'
+import { SettingTy, StateTy } from '~/store'
 
 const { tagsView, fixedHeader, sidebarLogo } = defaultSettings
 
@@ -20,5 +21,5 @@ export default {
   state,
   mutations,
   actions
-}
+} as Module<SettingTy,StateTy>
 

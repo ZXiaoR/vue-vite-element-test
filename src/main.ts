@@ -4,8 +4,8 @@ const app = createApp(App)
 import router from './router'
 import '@/styles/index.scss'
 
-import store from './store'
-app.use(store)
+import {store, key} from '@/store'
+app.use(store, key)
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'

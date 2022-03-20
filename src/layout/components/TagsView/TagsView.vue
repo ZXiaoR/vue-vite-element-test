@@ -32,7 +32,7 @@ import { Close } from '@element-plus/icons-vue'
 import { RouterTy, RouteItemTy } from '~/router'
 import { ObjTy } from '~/common'
 import { reactive, computed, watch, onMounted, nextTick, toRefs, getCurrentInstance } from 'vue'
-import { useStore } from 'vuex'
+import { useStore } from '@/store'
 import { useRoute, useRouter } from 'vue-router'
 const store = useStore()
 const $route = useRoute()

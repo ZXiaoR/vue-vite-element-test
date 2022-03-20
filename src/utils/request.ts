@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import store from '@/store'
-import { StateTy } from '~/store'
+import { store } from '@/store'
 import { ElMessage } from 'element-plus'
 import { ObjTy } from '~/common'
 const service = axios.create({
@@ -14,7 +13,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    const token = (store.state as StateTy).user.token
+    const token = store.state.user.token
     if (token) {
       (config as ObjTy).headers['Token'] = token
     }
