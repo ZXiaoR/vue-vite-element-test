@@ -1,0 +1,29 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es2021": true,
+        // https://eslint.vuejs.org/user-guide/#faq
+        "vue/setup-compiler-macros": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/essential",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "parser": "vue-eslint-parser",
+    "plugins": [
+        "vue",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "semi": ["warn","never"],
+        "@typescript-eslint/no-explicit-any": ["off"],
+        "@typescript-eslint/no-var-requires": "off"
+    }
+}

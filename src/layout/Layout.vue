@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'Layout'
+  name: "MyLayout"
 }
 </script>
 

@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from "vue-router";
+import { RouteRecordRaw } from "vue-router"
 export interface RouteItemTy {
     /**
      * hidden 如果设置为true,将不会展示在sidebar

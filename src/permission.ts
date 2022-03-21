@@ -1,17 +1,17 @@
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 import router from '@/router'
 import { store }  from '@/store'
-import { getToken } from '@/utils/auth'
-import NProgress from 'nprogress'
-NProgress.configure({ showSpinner: false }) // NProgress Configuration
-import 'nprogress/nprogress.css'
 import getPageTitle from '@/utils/getPageTitle'
 import {RouterRowTy} from '~/router'
+import { RouteLocationNormalized } from 'vue-router'
+NProgress.configure({ showSpinner: false }) // NProgress Configuration
 const whiteList = ['/login', '/404', '/401'] // no redirect whitelist
-router.beforeEach(async (to: any, from, next: any) => {
+router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized, next) => {
   NProgress.start()
+  console.log(to)
   document.title = getPageTitle(to.meta.title)
-  const hasToken: string | null = getToken()
-  if (hasToken) {
+  if (store.state.user.token) {
     if (to.path === '/login') {
       next({ path: '/dashboard' })
     } else {
@@ -26,6 +26,7 @@ router.beforeEach(async (to: any, from, next: any) => {
           })
           next({ ...to, replace: true })
         } catch (error) {
+          console.log(error)
         }
       }
     }
