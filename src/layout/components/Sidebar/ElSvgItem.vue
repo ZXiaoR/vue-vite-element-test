@@ -14,7 +14,6 @@ const props = defineProps({
     type: String
   }
 })
-const { elSvgName } = props
 
 </script>
 

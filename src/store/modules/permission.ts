@@ -11,7 +11,7 @@ const state: PermissionTy = {
 }
 
 const mutations = {
-  SET_ROUTES: (state: PermissionTy, routes: RouterTy) => {
+  M_SET_ROUTES: (state: PermissionTy, routes: RouterTy) => {
     state.routes = constantRoutes.concat(routes).concat(endRoutes)
   }
 }
@@ -25,7 +25,7 @@ const actions = {
   generateRoutes({ commit }: ObjTy) {
     return new Promise(resolve => {
       const accessedRoutes = currentRoutes
-      commit('SET_ROUTES', accessedRoutes)
+      commit('M_SET_ROUTES', accessedRoutes)
       resolve(accessedRoutes)
     })
   }

@@ -16,6 +16,7 @@
 </template>
 
 <script setup lang="ts">
+// 运行时声明
 defineProps({
   isActive: {
     type: Boolean,

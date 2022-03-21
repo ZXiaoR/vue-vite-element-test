@@ -20,7 +20,7 @@ const actions= {
     })
     return new Promise((resolve, reject) => {
       const test_token: string = ' alPPZxSWQdzRWxkUx4'
-      commit('SET_TOKEN', test_token)
+      commit('M_SET_TOKEN', test_token)
       setToken(test_token)
       resolve('success')
     })
@@ -28,7 +28,7 @@ const actions= {
   // 退出逻辑
   logout({ commit, state }: ObjTy) {
     return new Promise((resolve, reject) => {
-      commit('SET_TOKEN', '')
+      commit('M_SET_TOKEN', '')
       removeToken()
       resolve('succss')
     })

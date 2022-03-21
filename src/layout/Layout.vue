@@ -4,7 +4,6 @@
     <div :class="{hasTagsView:needTagsView}" class="main-container">
       <div :class="{'fixed-header':fixedHeader}">
         <Navbar />
-        <TagsView v-if="needTagsView" />
       </div>
       <AppMain />
     </div>
@@ -17,7 +16,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { Sidebar, Navbar, AppMain, TagsView } from './components'
+import { Sidebar, Navbar, AppMain } from './components'
 import { computed } from 'vue'
 import { useStore } from '@/store'
 const store = useStore()
@@ -25,10 +24,10 @@ const sidebar = computed(() => {
   return store.state.app.sidebar
 })
 const needTagsView = computed(() => {
-  return store.state.settings.tagsView
+  return store.state.setting.tagsView
 })
 const fixedHeader = computed(() => {
-  return store.state.settings.fixedHeader
+  return store.state.setting.fixedHeader
 })
 const classObj = computed(() => {
   return {

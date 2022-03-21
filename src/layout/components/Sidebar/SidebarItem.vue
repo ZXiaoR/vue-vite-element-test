@@ -1,11 +1,11 @@
 <template>
-  <template v-if="!item.hidden">
+  <div v-if="!item.hidden">
     <!-- 无子节点 -->
-    <template v-if="hasOneShowingChild(item.children, item)">
+    <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <Link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'submenu-title-noDropdown': !isNest }">
           <!-- icon -->
-          <Item :meta="onlyOneChild.meta || item.meta" />
+          <Icon :meta="onlyOneChild.meta || item.meta" />
           <!-- title -->
           <template #title>{{ onlyOneChild.meta?.title }}</template>
         </el-menu-item>
@@ -13,7 +13,7 @@
     </template>
     <el-sub-menu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template v-if="item.meta" #title>
-        <Item :meta="item.meta" />
+        <Icon :meta="item.meta" />
         <span>{{ item.meta.title }}</span>
       </template>
       <SidebarItem
@@ -25,13 +25,12 @@
         class="nest-menu"
       />
     </el-sub-menu>
-  </template>
+  </div>
 </template>
 
 <script setup lang="ts">
-/*初始化参数比如引入组件，proxy,state等*/
 import Link from './Link.vue'
-import Item from './Item'
+import Icon from './Icon'
 import { isExternal } from '@/utils/validate'
 import path from 'path'
 import { RouteItemTy } from '~/router'
@@ -65,11 +64,13 @@ const hasOneShowingChild = (children = [], parent: RouteItemTy) => {
       return true
     }
   })
-  if (showingChildren.length === 1 && !parent?.alwaysShow) {
+  // 当只有一个子路由时，默认显示子路由
+  if (showingChildren.length === 1) {
     return true
   }
+  // 如果没有要显示的子路由，则展示父级
   if (showingChildren.length === 0) {
-    onlyOneChild.value = { ...parent, path: '', noChildren: true }
+    onlyOneChild.value = { ...parent, path: '', noShowingChildren: true }
     return true
   }
   return false

@@ -1,5 +1,5 @@
 import router from '@/router'
-import { store } from '@/store'
+import { store }  from '@/store'
 import { getToken } from '@/utils/auth'
 import NProgress from 'nprogress'
 NProgress.configure({ showSpinner: false }) // NProgress Configuration

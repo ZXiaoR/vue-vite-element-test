@@ -10,10 +10,6 @@ export interface SettingTy {
   fixedHeader: boolean;
   sidebarLogo: boolean;
 }
-export interface TagsViewTy {
-  visitedViews: RouterTy;
-  cachedViews: RouterTy;
-}
 export interface PermissionTy {
   routes: RouterTy;
 }
@@ -21,10 +17,8 @@ export interface UserTy {
   token: string | null;
 }
 export interface StateTy {
-  name: string;
   app: AppTy;
   setting: SettingTy;
-  tagsViews: TagsViewTy;
   permission: PermissionTy;
   user: UserTy;
 }

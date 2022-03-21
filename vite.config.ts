@@ -29,6 +29,31 @@ export default defineConfig({
       scss: {
         additionalData: `@import "@/styles/variables.scss";`
       }
+    },
+    postcss: {
+      plugins: [
+          {
+            postcssPlugin: 'internal:charset-removal',
+            AtRule: {
+              charset: (atRule) => {
+                if (atRule.name === 'charset') {
+                  atRule.remove();
+                }
+              }
+            }
+          }
+      ],
+    }
+  },
+  build: {
+    // 消除打包大小超过500kb警告
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
+      }
     }
   }
 })

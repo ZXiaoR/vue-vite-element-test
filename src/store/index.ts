@@ -11,6 +11,7 @@ for (const path in modulesFiles) {
   modules[moduleName] = modulesFiles[path].default
 }
 // 定义injection key
+// https://vuex.vuejs.org/zh/guide/typescript-support.html
 export const key: InjectionKey<Store<StateTy>> = Symbol()
 export const store = createStore<StateTy>({
   modules

@@ -7,6 +7,7 @@
 <script lang="ts" setup>
   import { isExternal } from '@/utils/validate';
   import { computed } from 'vue'
+  // 纯类型声明props
   const props = defineProps<{
     iconClass: string,
     className?: string

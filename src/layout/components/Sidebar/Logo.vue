@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import setting from '@/settings'
+import settings from '@/settings'
 import { reactive, toRefs } from 'vue'
 defineProps({
   collapse: {
@@ -27,8 +27,8 @@ defineProps({
   }
 })
 const state = reactive({
-  title: setting.title,
-  logo: setting.logo
+  title: settings.title,
+  logo: settings.logo
 })
 const { title, logo } = toRefs(state)
 </script>

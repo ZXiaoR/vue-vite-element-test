@@ -18,12 +18,18 @@ export const constantRoutes: RouterTy = [
   {
     path: '/ccc',
     component: Layout,
+    meta: { title: 'ccc', icon: 'welcome' },
     children: [
       {
-        path: '',
-        name: 'ccc',
+        path: 'c1',
+        name: 'ccc1',
         component: () => import('@/views/dashboard/index.vue'),
-        meta: { title: 'ccc', icon: 'welcome' }
+        meta: { title: 'ccc1', icon: 'welcome' }
+      }, {
+        path: 'c2',
+        name: 'ccc2',
+        component: () => import('@/views/dashboard/index.vue'),
+        meta: { title: 'ccc2', elSvgIcon: 'Burger' }
       }
     ]
   },

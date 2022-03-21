@@ -46,7 +46,7 @@ const activeMenu = computed(() => {
   return path
 })
 const showLogo = computed(() => {
-  return store.state.settings.sidebarLogo
+  return store.state.setting.sidebarLogo
 })
 const isCollapse = computed(() => {
   return !store.state.app.sidebar.opened
