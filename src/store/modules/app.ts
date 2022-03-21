@@ -4,7 +4,7 @@ import { AppTy, StateTy } from '~/store'
 import { ObjTy } from '~/common'
 const state:AppTy = {
     sidebar: {
-        opened: Cookies.get('sidebarStatus') ? !!+ Cookies.get('sidebarStatus')! : true,
+        opened: Cookies.get('sidebarStatus') === '1' ? true : false,
         withoutAnimation: false,
     }
 }

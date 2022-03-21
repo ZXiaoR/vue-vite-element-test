@@ -17,7 +17,7 @@ service.interceptors.request.use(
       config.headers = {
         ...config.headers,
         Token: token
-      };
+      }
     }
     return config
   },

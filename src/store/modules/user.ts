@@ -18,16 +18,16 @@ const actions= {
     doLogin(userInfo).then(res => {
       console.log(res)
     })
-    return new Promise((resolve, reject) => {
-      const test_token: string = ' alPPZxSWQdzRWxkUx4'
+    return new Promise((resolve) => {
+      const test_token = 'alPPZxSWQdzRWxkUx4'
       commit('M_SET_TOKEN', test_token)
       setToken(test_token)
       resolve('success')
     })
   },
   // 退出逻辑
-  logout({ commit, state }: ObjTy) {
-    return new Promise((resolve, reject) => {
+  logout({ commit }: ObjTy) {
+    return new Promise((resolve) => {
       commit('M_SET_TOKEN', '')
       removeToken()
       resolve('succss')

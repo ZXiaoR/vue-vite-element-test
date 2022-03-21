@@ -1,4 +1,3 @@
-import { StateTy } from '~/store'
 const getters = {
     
 }
