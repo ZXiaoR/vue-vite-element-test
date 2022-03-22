@@ -15,6 +15,9 @@ import 'virtual:svg-icons-register'
 import SvgIcon from '@/icons/SvgIcon.vue'
 app.component('SvgIcon', SvgIcon)
 
+import VueI18n from './language'
+app.use(VueI18n)
+
 import './permission'
 
 app.use(router).mount('#app')

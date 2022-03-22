@@ -40,15 +40,17 @@
 <script lang="ts" setup>
 import { reactive, ref, nextTick } from 'vue'
 import { useStore } from '@/store'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import type { ElForm } from 'element-plus'
 import {RouterRowTy} from '~/router'
 import { ElMessage  } from 'element-plus'
+import { useI18n } from "vue-i18n"
 type FormInstance = InstanceType<typeof ElForm>
 
 const loginFormRef = ref<FormInstance>()
 let loading = ref<boolean>(false)
-
+const {t} = useI18n()
+console.log(t('name'))
 const loginForm = reactive({
   username: 'admin',
   password: '12345678'
@@ -67,11 +69,12 @@ const handleLogin = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       store.dispatch('user/login', loginForm).then(async(res) => {
+        console.log(res)
         store.dispatch('permission/dynamicRoutes') // 过滤菜单
         store.dispatch('permission/generateRoutes').then((accessRoutes) => {
           accessRoutes.forEach((route: RouterRowTy) => {
             router.addRoute(route)
-          });
+          })
           router.push('/')
         })
       })

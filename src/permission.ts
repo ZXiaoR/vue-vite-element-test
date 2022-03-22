@@ -9,7 +9,6 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 const whiteList = ['/login', '/404', '/401'] // no redirect whitelist
 router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized, next) => {
   NProgress.start()
-  console.log(to)
   document.title = getPageTitle(to.meta.title)
   if (store.state.user.token) {
     if (to.path === '/login') {
