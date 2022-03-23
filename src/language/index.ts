@@ -1,12 +1,23 @@
-import { createI18n } from 'vue-i18n'
+import { createI18n } from "vue-i18n"
 import Cookies from 'js-cookie'
+import elementEnLocale from 'element-plus/lib/locale/lang/en'
+import elementZhLocale from 'element-plus/lib/locale/lang/zh-cn'
 const modulesFiles = import.meta.globEager('./modules/**/*.ts')
-const messages =  {}
-for (const path in modulesFiles) {
-  const moduleName = path.replace(/(.*\/)*([^.]+).*/gi, '$2')
-  messages[moduleName] = modulesFiles[path].default
+const messages =  {
+  en: {
+    ...elementEnLocale
+  },
+  zh: {
+    ...elementZhLocale
+  }
 }
-console.log(messages)
+for (const path in modulesFiles) {
+  const moduleName = path.replace(/(.*\/)*([^.]+).*/gi, '$2') // en / zh
+  messages[moduleName] = {
+    ...messages[moduleName],
+    ...modulesFiles[path].default
+  }
+}
 export function getLanguage(): string {
   const chooseLanguage = Cookies.get('language')
   if (chooseLanguage) return chooseLanguage
@@ -22,7 +33,6 @@ export function getLanguage(): string {
   return 'zh'
 }
 const i18n = createI18n({
-  legacy: false,
   locale: getLanguage(),
   messages
 })

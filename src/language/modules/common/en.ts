@@ -1,3 +1,5 @@
 export default {
-  name: '测试'
+  common: {
+    name: '测试'
+  }
 }

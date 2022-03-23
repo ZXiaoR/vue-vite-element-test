@@ -1,3 +1,5 @@
 export default {
-  name: 'test'
+  common: {
+    name: 'test'
+  }
 }
