@@ -31,7 +31,7 @@ export default defineConfig({
     preprocessorOptions: {
       // 定义全局scss变量
       scss: {
-        additionalData: `@import "@/styles/variables.scss";`
+        additionalData: `@import "@/styles/variables.scss";@import "@/styles/mixin.scss";`
       }
     },
     postcss: {

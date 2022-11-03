@@ -28,8 +28,8 @@
 <script setup lang="ts">
 import { CaretBottom } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import Breadcrumb from './Breadcrumb'
-import Hamburger from './Hamburger'
+import Breadcrumb from './Breadcrumb/index.vue'
+import Hamburger from './Hamburger/index.vue'
 import { computed } from 'vue'
 import { useStore } from '@/store'
 const store = useStore()

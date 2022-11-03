@@ -3,7 +3,8 @@ export interface AppTy {
   sidebar: {
     opened: boolean;
     withoutAnimation: boolean;
-  }
+  },
+  device: string
 }
 export interface SettingTy {
   tagsView: boolean;

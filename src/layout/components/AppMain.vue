@@ -19,11 +19,11 @@ const key = computed(() => route.path)
 
 <style lang="scss" scoped>
 .app-main {
-  /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - #{$navBarHeight});
   width: 100%;
   position: relative;
   overflow: hidden;
+  top: $navBarHeight;
 }
 
 .fixed-header+.app-main {
@@ -32,8 +32,7 @@ const key = computed(() => route.path)
 
 .hasTagsView {
   .app-main {
-    /* 84 = navbar + tags-view = 50 + 34 */
-    min-height: calc(100vh - 84px);
+    min-height: calc(100vh - #{$navBarHeight} -#{$tagViewHeight});
   }
 
   .fixed-header+.app-main {

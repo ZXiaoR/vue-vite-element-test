@@ -6,7 +6,8 @@ const state:AppTy = {
     sidebar: {
         opened: Cookies.get('sidebarStatus') === '1' ? true : false,
         withoutAnimation: false,
-    }
+    },
+    device: 'desktop'
 }
 const mutations = {
     M_TOGGLE_SIDEBAR: (state: AppTy) => {
@@ -22,6 +23,9 @@ const mutations = {
         Cookies.set('sidebarStatus', '0')
         state.sidebar.opened = false
         state.sidebar.withoutAnimation = withoutAnimation
+    },
+    M_TOGGLE_DEVICE: (state: AppTy, device: string) => {
+        state.device = device
     }
 }
 const actions = {
@@ -30,6 +34,9 @@ const actions = {
     },
     closeSideBar({ commit }: ObjTy, withoutAnimation: boolean) {
         commit('M_CLOSE_SIDEBAR', withoutAnimation)
+    },
+    toggleDevice({ commit }: ObjTy, device: string) {
+        commit('M_TOGGLE_DEVICE', device)
     }
 }
 export default {

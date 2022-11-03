@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, Router } from "vue-router"
 import { RouterTy } from '~/router'
-import Layout from '@/layout'
+import Layout from '@/layout/index.vue'
 export const constantRoutes: RouterTy = [
   {
     path: '/',
@@ -11,14 +11,14 @@ export const constantRoutes: RouterTy = [
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index.vue'),
-        meta: { title: 'Dashboard', icon: 'welcome' }
+        meta: { title: 'Dashboard', elSvgIcon: 'HomeFilled' }
       }
     ]
   },
   {
     path: '/ccc',
     component: Layout,
-    meta: { title: 'ccc', icon: 'welcome' },
+    meta: { title: 'Navigator One', elSvgIcon: 'Tools' },
     children: [
       {
         path: 'c1',
@@ -41,7 +41,7 @@ export const constantRoutes: RouterTy = [
         path: '',
         name: 'ddd',
         component: () => import('@/views/dashboard/index.vue'),
-        meta: { title: 'ddd', icon: 'welcome' }
+        meta: { title: 'Navigator Two', elSvgIcon: 'HelpFilled' }
       }
     ]
   },

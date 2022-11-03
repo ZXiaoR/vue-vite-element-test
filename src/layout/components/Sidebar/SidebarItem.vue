@@ -3,15 +3,18 @@
     <!-- 无子节点 -->
     <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <Link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'submenu-title-noDropdown': !isNest }">
-          <!-- icon -->
-          <Icon :meta="onlyOneChild.meta || item.meta" />
+        <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{ 'sub-menu-title-noDropdown': !isNest }">
+           <!-- icon -->
+           <Icon :meta="onlyOneChild.meta || item.meta" />
           <!-- title -->
-          <template #title>{{ onlyOneChild.meta?.title }}</template>
+          <template #title>
+            <span>{{ onlyOneChild.meta?.title }}</span>
+          </template>
         </el-menu-item>
       </Link>
+      
     </template>
-    <el-sub-menu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else ref="subMenu" :index="resolvePath(item.path)">
       <template v-if="item.meta" #title>
         <Icon :meta="item.meta" />
         <span>{{ item.meta.title }}</span>
